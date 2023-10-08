@@ -1,7 +1,7 @@
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/country_bloc/bloc/country_bloc.dart';
 import 'package:flutter/material.dart';
+import 'second_page.dart'; 
 
 class CountryScreen extends StatelessWidget {
   @override
@@ -41,8 +41,7 @@ class CountryButton extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: ElevatedButton(
         onPressed: () {
-          // Navigate to a new page when the button is pressed
-          // _navigateToNewPage(context);
+          _navigateToNewPage(context);
         },
         child: Text(getCountryName(country)),
       ),
@@ -65,12 +64,10 @@ class CountryButton extends StatelessWidget {
   }
 
   void _navigateToNewPage(BuildContext context) {
-    // Navigate to a new page based on the selected country
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => NewPage(url)),
-    // );
+    // Navigate to NewsDetailScreen with the country code
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NewsDetailScreen(source: countrycode)),
+    );
   }
 }
-
-
